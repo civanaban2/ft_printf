@@ -6,7 +6,7 @@
 /*   By: cari <cari@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/09 20:35:03 by cari              #+#    #+#             */
-/*   Updated: 2024/12/17 00:17:53 by cari             ###   ########.fr       */
+/*   Updated: 2024/12/17 00:26:53 by cari             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,22 +15,22 @@
 int	ft_printf(const char *format, ...)
 {
 	va_list	args;
-	int		a;
-	int		*len;
+	int		len;
+	int		*ptr;
 
 	va_start(args, format);
-	a = 0;
-	len = &a;
+	len = 0;
+	ptr = &len;
 	while (*format)
 	{
 		if (*format == '%')
 		{
-			ft_format_control((char *)++format, args, len);
+			ft_format_control((char *)++format, args, ptr);
 		}
 		else
 			write(1, format, 1);
 		format++;
 	}
 	va_end(args);
-	return (*len);
+	return (*ptr);
 }
