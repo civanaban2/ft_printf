@@ -3,7 +3,7 @@ NAME = libftprintf.a
 CC = cc
 CFLAGS = -Wall -Wextra -Werror
 
-SRC = ft_printf.c ft_printf_utils1.c ft_printf_utils2.c
+SRC = ft_printf.c ft_printf_utils1.c
 OBJ = $(SRC:.c=.o)
 OBJLIB = $(shell find libft/ -type f -name "*.o")
 

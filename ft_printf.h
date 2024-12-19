@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cari <cari@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: urmet <urmet@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/09 20:35:00 by cari              #+#    #+#             */
-/*   Updated: 2024/12/17 00:20:03 by cari             ###   ########.fr       */
+/*   Updated: 2024/12/20 01:44:31 by urmet            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,13 +20,8 @@
 
 int		ft_printf(const char *format, ...);
 void	ft_format_control(char *format, va_list arg, int *len);
-void	print_char(char chr, int *len);
+void	print_char(char c, int *len);
 void	print_str(char *str, int *len);
-void	print_ptr(void *arg, int *len);
-void	print_dec(int num, int *len);
-void	print_int(int num, int *len);
-void	print_undec(unsigned int num, int *len);
-void	print_hex(int num, int *len);
-void	print_prcnt(int *len);
+void	print_base(unsigned long long n, char *base, int *len);
 
 #endif
