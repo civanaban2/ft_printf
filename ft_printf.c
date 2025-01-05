@@ -6,7 +6,7 @@
 /*   By: urmet <urmet@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/09 20:35:03 by cari              #+#    #+#             */
-/*   Updated: 2024/12/20 01:46:46 by urmet            ###   ########.fr       */
+/*   Updated: 2025/01/03 00:01:00 by urmet            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,8 @@ int	ft_printf(const char *format, ...)
 	{
 		if (*format == '%')
 		{
+			if (!(format + 1))
+				return (0);
 			ft_format_control((char *)++format, args, ptr);
 		}
 		else
