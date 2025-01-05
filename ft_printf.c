@@ -25,7 +25,7 @@ int	ft_printf(const char *format, ...)
 	{
 		if (*format == '%')
 		{
-			if (!(format + 1))
+			if (!*(format + 1))
 				return (0);
 			ft_format_control((char *)++format, args, ptr);
 		}

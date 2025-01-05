@@ -14,14 +14,22 @@
 
 void	ft_format_control(char *format, va_list arg, int *len)
 {
+	unsigned long long ptr;
+
 	if (*format == 'c')
 		print_char((char) va_arg(arg, int), len);
 	else if (*format == 's')
 		print_str(va_arg(arg, char *), len);
 	else if (*format == 'p')
 	{
-		*len += write(1, "0x", 2);
-		print_base(va_arg(arg, unsigned long long), "0123456789abcdef", len);
+		ptr = va_arg(arg, unsigned long long);
+		if (ptr == 0)
+			*len += write(1, "(nil)", 5);
+		else
+		{
+			*len += write(1, "0x", 2);
+			print_base(ptr, "0123456789abcdef", len);
+		}
 	}
 	else if (*format == 'd' || *format == 'i')
 		print_base(va_arg(arg, int), "0123456789", len);
