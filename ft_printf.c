@@ -6,7 +6,7 @@
 /*   By: cari <cari@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/09 20:35:03 by cari              #+#    #+#             */
-/*   Updated: 2025/01/06 04:22:39 by cari             ###   ########.fr       */
+/*   Updated: 2025/01/06 04:53:59 by cari             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,12 +39,12 @@ int	ft_printf(const char *format, ...)
 
 void	ft_format_control(char *format, va_list arg, int *len)
 {
-	char c;
-	
+	char	c;
+
 	if (*format == 'c')
 	{
 		c = va_arg(arg, int);
-		*len += write(1, &c, 1);	
+		*len += write(1, &c, 1);
 	}
 	else if (*format == 's')
 		print_str(va_arg(arg, char *), len);
