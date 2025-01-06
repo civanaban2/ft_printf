@@ -3,27 +3,23 @@ NAME = libftprintf.a
 CC = cc
 CFLAGS = -Wall -Wextra -Werror
 
-SRC = ft_printf.c ft_printf_utils1.c
-OBJ = $(SRC:.c=.o)
-OBJLIB = $(shell find libft/ -type f -name "*.o")
+SRC = ft_printf.c
+OBJ = ft_printf.o
 
-all: libftprintf.a
+all: $(NAME)
 
-$(NAME): $(OBJ) lib
-	ar rcs $(NAME) $(OBJ) $(OBJLIB)
+$(NAME): $(OBJ)
+	ar rcs $(NAME) $(OBJ)
 
-lib: 
-	make -C libft
-	make bonus -C libft
+$(OBJ): $(SRC)
+	$(CC) $(CFLAGS) -c $(SRC) -o $(OBJ)
 
 clean:
 	rm -f $(OBJ)
-	make clean -C libft
-	make fclean -C libft
 
 fclean: clean
 	rm -f $(NAME)
 	
 re: fclean all
 
-.PHONY: all lib clean fclean re
+.PHONY: all clean fclean re
